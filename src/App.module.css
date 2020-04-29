@@ -8,3 +8,16 @@ body {
   align-items: center;
   flex-direction: column;
 }
+.title {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media (max-with: 770px) {
+  .Container {
+    margin: 0 10%;
+  }
+  .image {
+    width: 100%;
+  }
+}
