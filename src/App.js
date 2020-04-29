@@ -6,24 +6,32 @@ import { Cards, Chart, CountryPicker } from './components';
 
 class App extends React.Component {
   state = {
-    data: {
-
-    }
+    data: {},
+    country: ''
   }
 
   async componentDidMount() {
     const fetchedData = await fetchData();
 
     this.setState({ data: fetchedData })
-    
   }
+
+  handleCountryChange = async ( country ) => {
+    const fetchedData = await fetchData(country);
+    
+  
+    this.setState({ data: fetchedData, country: country });
+   
+  }
+
   render() {
-    const { data } = this.state;
+    const { data, country } = this.state;
     return(
       <div className={styles.Container}>
+        <h1 className={styles.title}>CORONA STATISTICS</h1>
         <Cards data={data}/>
-        <CountryPicker />
-        <Chart />
+        <CountryPicker handleCountryChange={this.handleCountryChange}/>
+        <Chart data={data} country={country}/>
     </div>
   );
   }
