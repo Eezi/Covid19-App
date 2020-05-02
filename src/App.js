@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './App.module.css';
 import { fetchData } from './api';
+import image from './images/bacteria.svg';
 
 import { Cards, Chart, CountryPicker } from './components';
 
@@ -28,7 +29,7 @@ class App extends React.Component {
     const { data, country } = this.state;
     return(
       <div className={styles.Container}>
-        <h1 className={styles.title}>CORONA STATISTICS</h1>
+        <img className={styles.image} src={image} /> 
         <Cards data={data}/>
         <CountryPicker handleCountryChange={this.handleCountryChange}/>
         <Chart data={data} country={country}/>
